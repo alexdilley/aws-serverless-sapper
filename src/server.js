@@ -1,8 +1,8 @@
-import polka from 'polka';
+import express from 'express';
 import * as sapper from '@sapper/server';
+import awsServerlessExpress from 'aws-serverless-express';
 
-const app = polka();
+const app = express().use(sapper.middleware());
+const server = awsServerlessExpress.createServer(app, () => console.log('listening...'));
 
-app.use(sapper.middleware()); // .listen(3000);
-
-export default app;
+export const handler = (event, context) => awsServerlessExpress.proxy(server, event, context);

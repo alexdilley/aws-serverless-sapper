@@ -53,8 +53,8 @@ Resources:
   YOUR_SERVERLESS_EXPRESS_LAMBDA_FUNCTION_NAME:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: ./
-      Handler: lambda.handler
+      CodeUri: ./__sapper__/build
+      Handler: index.handler
       MemorySize: 1024
       Role: !GetAtt LambdaExecutionRole.Arn
       Runtime: nodejs8.10

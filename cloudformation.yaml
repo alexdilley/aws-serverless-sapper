@@ -53,11 +53,11 @@ Resources:
   YOUR_SERVERLESS_EXPRESS_LAMBDA_FUNCTION_NAME:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: ./__sapper__/build
+      CodeUri: ./server
       Handler: index.handler
       MemorySize: 1024
       Role: !GetAtt LambdaExecutionRole.Arn
-      Runtime: nodejs8.10
+      Runtime: nodejs10.x
       Timeout: 3
       Events:
         ProxyApiRoot:

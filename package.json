@@ -10,18 +10,20 @@
     "accountId": "YOUR_ACCOUNT_ID"
   },
   "scripts": {
+    "postinstall": "cd server && npm install",
     "config": "node ./scripts/configure.js",
     "package": "aws cloudformation package --template ./cloudformation.yaml --s3-bucket $npm_package_config_s3BucketName --output-template packaged-sam.yaml --region $npm_package_config_region",
     "deploy": "aws cloudformation deploy --template-file packaged-sam.yaml --stack-name $npm_package_config_cloudFormationStackName --capabilities CAPABILITY_IAM --region $npm_package_config_region",
     "package-deploy": "npm run package && npm run deploy",
     "dev": "sapper dev",
-    "build": "sapper build"
+    "build": "rm -rf ./server/__sapper__ && sapper build && mv ./__sapper__ ./server/"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
   },
   "devDependencies": {
-    "aws-serverless-express": "^3.3.6",
-    "express": "^4.16.4",
     "npm-run-all": "^4.1.5",
-    "sapper": "alpha",
+    "sapper": "^0.27.0",
     "svelte": "^3.0.0",
     "svelte-loader": "^2.9.0",
     "webpack": "^4.7.0"

@@ -13,5 +13,5 @@ npm run package-deploy
 
 ## References
 
-* https://github.com/sveltejs/sapper-template/tree/webpack-v3
+* https://github.com/awslabs/aws-serverless-express/tree/master/examples/basic-starter
 * https://github.com/sveltejs/sapper-template

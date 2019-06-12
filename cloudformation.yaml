@@ -53,7 +53,7 @@ Resources:
   YOUR_SERVERLESS_EXPRESS_LAMBDA_FUNCTION_NAME:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: ./server
+      CodeUri: ./lambda
       Handler: index.handler
       MemorySize: 1024
       Role: !GetAtt LambdaExecutionRole.Arn

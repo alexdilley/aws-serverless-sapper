@@ -3,6 +3,6 @@
 const awsServerlessExpress = require('aws-serverless-express');
 const app = require('./__sapper__/build/server/server').default;
 
-const server = awsServerlessExpress.createServer(app);
+const server = awsServerlessExpress.createServer(app.handler);
 
 exports.handler = (ev, ctx) => awsServerlessExpress.proxy(server, ev, ctx);
